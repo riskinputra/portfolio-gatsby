@@ -1,0 +1,75 @@
+.hero-container {
+  @apply flex;
+  @apply justify-center;
+  @apply items-start;
+  @apply flex-col;
+  @apply h-screen;
+  @apply p-0;
+  @apply max-w-full;
+  @apply md:max-w-sm;
+}
+
+.hero-content {
+  @apply relative;
+  @apply md:fixed;
+  @apply max-w-full;
+  @apply md:max-w-xs;
+}
+
+.hero-intro {
+  margin: 0 0 30px 4px;
+  color: var(--orange);
+  font-size: clamp(14px, 5vw, 16px);
+  font-family: 'Space Mono', monospace;
+}
+
+.hero-name {
+  @apply m-0;
+  font-size: clamp(40px, 8vw, 70px);
+  @apply font-semibold;
+  line-height: 1.1;
+  color: var(--black-light-1);
+
+  span {
+    color: var(--black-light-2);
+  }
+
+}
+
+.hero-separator {
+  @apply my-6;
+  @apply h-1;
+  background-color: var(--black-light-1);
+  width: 30%;
+}
+
+.hero-desc {
+  margin: 20px 0px 0px;
+  max-width: 540px;
+
+  a {
+    @apply relative;
+    @apply inline-block;
+    text-decoration-skip-ink: auto;
+    transition: var(--transition);
+    color: var(--orange);
+
+    &:after {
+      content: "";
+      @apply block;
+      @apply relative;
+      width: 0px;
+      height: 1px;
+      bottom: 0.37em;
+      background-color: var(--orange);
+      transition: var(--transition);
+      opacity: 0.5;
+    }
+    
+    &:hover {
+      &:after {
+        @apply w-full;
+      }
+    }
+  }
+}

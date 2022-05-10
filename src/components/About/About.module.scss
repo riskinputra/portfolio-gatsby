@@ -1,0 +1,109 @@
+.about-container {
+  max-width: 900px;
+  visibility: visible;
+  opacity: 1;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s,
+    transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+  h2:before {
+    content: "01.";
+  }
+}
+
+.about-content {
+  @apply grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 50px;
+}
+
+.content-skill {
+  @apply grid;
+  @apply grid-cols-2;
+  gap: 0px 10px;
+  padding: 0px;
+  margin: 20px 0px 0px;
+  overflow: hidden;
+  list-style: none;
+
+  li {
+    @apply relative;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+
+    &:before {
+      content: "▹";
+      @apply absolute;
+      left: 0px;
+      color: var(--orange);
+      font-size: 14px;
+      line-height: 12px;
+    }
+  }
+}
+
+.content-profile {
+  @apply relative;
+  max-width: 260px;
+}
+
+.wrapper-profile {
+  box-shadow: 0 10px 30px -15px var(--orange-shadow);
+  transition: var(--transition);
+  display: block;
+  position: relative;
+  width: 100%;
+  @apply rounded;
+  background-color: var(--orange);
+
+  &:before {
+    top: 0px;
+    left: 0px;
+    background-color: var(--gray-dark-1);
+    mix-blend-mode: screen;
+  }
+
+  &:after {
+    border: 2px solid var(--orange);
+    top: 20px;
+    left: 20px;
+    z-index: -1;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    @apply w-full;
+    @apply h-full;
+    @apply rounded;
+    transition: var(--transition);
+  }
+
+  &:hover,
+  &:focus {
+    background: transparent;
+    outline: 0px;
+    box-shadow: 0 20px 30px -15px var(--orange-shadow);
+
+    &:after {
+      top: 15px;
+      left: 15px;
+    }
+
+    .wrapper-profile-image {
+      filter: none;
+      mix-blend-mode: normal;
+    }
+  }
+
+  .wrapper-profile-image {
+    @apply relative;
+    @apply rounded;
+    mix-blend-mode: multiply;
+    filter: grayscale(100%) contrast(1);
+    transition: var(--transition);
+  }
+}

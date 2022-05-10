@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+
+  /* COlor */
+  --navy: #2D4059;
+  --red: #FB3640;
+  --orange: #FF5722;
+  --orange-shadow: rgba(255, 86, 34, 0.5);
+  --yellow: #EAEA7F;
+  --slate: #031036;
+  --gray-dark-1: #EEEEEE;
+  --gray: #F6F6F6;
+  --dark-blue: #161D6F;
+  --dark-tint: #98DED9;
+  --tint: #C7FFD8;
+  --black: #000000;
+  --black-light-1: #2F2C43;
+  --black-light-2: #6e6e72;
+  --purple-dark-2: #363062;
+  --purple-dark-1: #4D4C7D;
+  --purple: #542E71;
+  --purple-light-1: #E9D5DA;
+  --purple-light-2: #A799B7;
+}
+
+body {
+  margin: 0px;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--gray-dark-1);
+  color: var(--black-light-2);
+}
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  margin: 0px auto;
+  width: 100%;
+  max-width: 1600px;
+  min-height: 100vh;
+  @apply py-0;
+  @apply px-4;
+  @apply md:px-36;
+}
+
+p { margin: 0px 0px 15px; }
+
+section {
+  margin: 0px auto;
+  padding: 100px 0px;
+  max-width: 1000px;
+}
+
+.section-title {
+  @apply flex;
+  @apply items-center;
+  @apply relative;
+  margin: 10px 0 40px;
+  @apply w-full;
+  @apply whitespace-nowrap;
+  font-size: clamp(26px,5vw,32px);
+  font-weight: 600;
+  color: var(--black-light-1);
+}
+.section-title:before {
+  @apply relative;
+  bottom: 1px;
+  counter-increment: section 1;
+  content: "0" counter(section) ".";
+  margin-right: 10px;
+  color: var(--orange);
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(20px,3vw,16px);
+  font-weight: 400;
+}
+
+.section-title:after {
+  content: "";
+  @apply block;
+  @apply relative;
+  top: -0;
+  width: 300px;
+  height: 1px;
+  margin-left: 20px;
+  background-color: var(--black-light-2);
+}
+
+a:hover,
+a:focus {
+  color: var(--orange);
+}
